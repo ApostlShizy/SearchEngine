@@ -1,0 +1,188 @@
+#pragma once
+
+#include<fstream>
+#include<exception>
+#include<vector>
+#include<map>
+#include<string>
+#include<iostream>
+
+#include "SearchServer.h"
+#include "nlohmann/json.hpp"
+
+/**
+*  Класс для работы с JSON-файлами
+*/
+class ConverterJSON {
+private:
+    size_t maxResponse = 1000;
+public:
+
+    ConverterJSON() = default;
+
+    /* получить максимальное колиество ответов на запрос из файла config.json */
+    size_t getMaxRespose() {
+        return maxResponse;
+    }
+
+    /* Метод принимает вектор строк в который вписывает пути к документам 
+    * вписывает в поле maxRespone максимальное количество ответов на один запрос
+    * Возврщает int с кодом выполнения
+    */
+    int getConfig(std::vector<std::string>& filePath) {
+
+        std::ifstream configFile("config.json");
+        nlohmann::json config_dir;
+
+        /* Исключения */
+
+        try {
+
+            if (!configFile.is_open()) {
+                throw std::exception();
+            }
+
+            configFile >> config_dir;
+
+            if (config_dir.count("config") == 0) {
+                throw std::invalid_argument("Config file is empty.");
+            }
+        }
+        catch (const std::invalid_argument& x) {
+            std::cerr << x.what() << std::endl;
+            configFile.close();
+            return 10;
+        }
+        catch (const std::exception& x) {
+            std::cerr << "Config file is missing.\n" << x.what() << std::endl;
+            return 11;
+        }
+
+        configFile.close();
+
+        /* Cоставление списка файлов*/
+
+        std::vector<std::string> listOfFiles;
+
+        {
+            auto iter = config_dir.find("files");
+            for (auto currentFile = iter->begin(); currentFile != iter->end(); ++currentFile) {
+                listOfFiles.push_back(currentFile.value());
+            }
+        }
+
+        maxResponse = config_dir.find("config").value().find("max_responses").value();
+
+        if (maxResponse <= 0) {
+            std::cerr << "\nNumber of responce <= 0" << std::endl;
+            return 12;
+        }
+
+        filePath = listOfFiles;
+
+        return 0;
+    }
+
+    /* Чтение и составление списков запросов */
+    std::map<size_t, std::vector<std::string>> getRequests() {
+
+        std::ifstream requestsFile("requests.json");
+        std::map<size_t, std::vector<std::string>> listOfRequests;
+
+        if (!requestsFile.is_open()) {
+            std::cerr << " \"requests.json\" not found." << std::endl;
+            return listOfRequests;
+        }
+
+        nlohmann::json requestsDict;
+        requestsFile >> requestsDict;
+
+        if (requestsDict.find("requests").value().size() > 1000) {
+            std::cerr << "\nNumbers of requests higther that 1000" << std::endl;
+            requestsFile.close();
+            return listOfRequests;
+        }
+
+        requestsFile.close();
+
+        {
+            auto requestsIter = requestsDict.find("requests");
+
+            int idOfRequest = 0;
+
+            for (auto current = requestsIter->begin(); current != requestsIter->end(); ++current) {
+                /* принимает запрос целиком, разбивает на отдельные слова, помещает в вектор по указателю
+                * Возвразает булевое значение false если количество слов в запросе более 10
+                * Тогда такой запрос считается не валидным и не будет записан
+                */
+                auto vecFunct = [](std::string str, std::vector<std::string>* tempVec) {
+                    std::string tempStr = "";
+                    for (auto& currentChar : str) {
+                        if (currentChar == ' ') {
+                            tempVec->push_back(tempStr);
+                            tempStr = "";
+                        }
+                        else {
+                            tempStr += currentChar;
+                        }
+                    }
+
+                    tempVec->push_back(tempStr);
+
+                    if (tempVec->size() > 10) {
+                        return false;
+                    }
+
+                    return true;
+                    };
+
+                std::vector<std::string> tempVector;
+
+                if (vecFunct(current.value(), &tempVector)) {
+                    listOfRequests[idOfRequest] = tempVector;
+                }
+                else {
+                    std::cerr << "\nThe query contains more than 10 words id: " << idOfRequest << std::endl;
+                }
+                ++idOfRequest;
+            }
+        }
+
+        return listOfRequests;
+    }
+
+    /* Положить в файл answers.json результаты поисковых запросов */
+    void putAnswers(std::vector<std::vector<RelativeIndex>>& answerValue) {
+
+        int i = 0;
+        nlohmann::ordered_json validityJson;
+
+        for (auto& currentAnswer : answerValue) {            
+            int num = (i / 10) >= 1 ? num = (i / 100 >= 1 ? 0 : 1) : 2;
+            std::string requestNumber = "request" + std::string(num, '0') + std::to_string(i);
+
+            if (currentAnswer.empty()) {
+                validityJson["answers"][requestNumber]["result"] = false;
+            }
+            else {
+                int j = 0;
+
+                validityJson["answers"][requestNumber]["result"] = true;
+
+                for (auto &currentRelative : currentAnswer) {
+
+                    validityJson["answers"][requestNumber]["relevance"][j]["doc_id"] = currentRelative.doc_id;
+                    validityJson["answers"][requestNumber]["relevance"][j]["rank"] = currentRelative.rank;
+                    ++j;
+                }
+            }
+            ++i;
+        }
+
+        std::ofstream outFileAnswers("answers.json");
+
+        outFileAnswers << validityJson.dump(4);
+
+        outFileAnswers.close();
+    }
+};

@@ -1,0 +1,215 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-616add9e85956bdc4520.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"build" : "nlohmann_json",
+					"jsonFile" : "directory-nlohmann_json-Release-96c3a9916b67f0e9629f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "nlohmann_json"
+				},
+				{
+					"build" : "Test",
+					"jsonFile" : "directory-Test-Release-7a05955d989e3f5ef10b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "Test",
+					"targetIndexes" : 
+					[
+						6,
+						7,
+						8
+					]
+				},
+				{
+					"build" : "Executable",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-Executable-Release-9b9ee67971f6cda90bf3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "Executable",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "SearchEngineLib",
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "nlohmann_json",
+					"parentIndex" : 0
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "TestFixEngine",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						6,
+						7,
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "Executable",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "Executable::@a203b219dd3218d60f25",
+					"jsonFile" : "target-Executable-Release-58f1ef30223cb23d21e6.json",
+					"name" : "Executable",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Executable_autogen::@a203b219dd3218d60f25",
+					"jsonFile" : "target-Executable_autogen-Release-4ce6bf717a9c8e928062.json",
+					"name" : "Executable_autogen",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Executable_autogen_timestamp_deps::@a203b219dd3218d60f25",
+					"jsonFile" : "target-Executable_autogen_timestamp_deps-Release-ea1b7dd5e56f9cd86109.json",
+					"name" : "Executable_autogen_timestamp_deps",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SearchEngineLib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SearchEngineLib-Release-2428008f2cd6b027bc5b.json",
+					"name" : "SearchEngineLib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SearchEngineLib_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SearchEngineLib_autogen-Release-0a7d18a2bc4b13191c61.json",
+					"name" : "SearchEngineLib_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SearchEngineLib_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SearchEngineLib_autogen_timestamp_deps-Release-ce8efc6e4399d11428cf.json",
+					"name" : "SearchEngineLib_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "TestFixEngine::@c0a5cca43b8aa79eb50e",
+					"jsonFile" : "target-TestFixEngine-Release-13659daeaf3f8399d36e.json",
+					"name" : "TestFixEngine",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "TestFixEngine_autogen::@c0a5cca43b8aa79eb50e",
+					"jsonFile" : "target-TestFixEngine_autogen-Release-87e14ea7f39b99de3558.json",
+					"name" : "TestFixEngine_autogen",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "TestFixEngine_autogen_timestamp_deps::@c0a5cca43b8aa79eb50e",
+					"jsonFile" : "target-TestFixEngine_autogen_timestamp_deps-Release-4852af145e0a8272d76c.json",
+					"name" : "TestFixEngine_autogen_timestamp_deps",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/develop/QT_Works/fixEngine/build/Desktop_Qt_6_7_3_MSVC2022_64bit-Release",
+		"source" : "C:/develop/QT_Works/fixEngine"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

@@ -1,0 +1,8 @@
+set(__QT_DEPLOY_TARGET_TestFixEngine_FILE C:/develop/QT_Works/fixEngine/Test/TestBuild/TestFixEngine.exe)
+set(__QT_DEPLOY_TARGET_TestFixEngine_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_TestFixEngine_RUNTIME_DLLS C:/Qt/6.7.3/msvc2022_64/bin/Qt6Test.dll;C:/Qt/6.7.3/msvc2022_64/bin/Qt6Core.dll)
+set(__QT_DEPLOY_TARGET_Executable_FILE C:/develop/QT_Works/fixEngine/Executable/ReleaseBuild/Executable.exe)
+set(__QT_DEPLOY_TARGET_Executable_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_Executable_RUNTIME_DLLS C:/Qt/6.7.3/msvc2022_64/bin/Qt6Core.dll)
+set(__QT_DEPLOY_TARGET_SearchEngineLib_FILE C:/develop/QT_Works/fixEngine/build/Desktop_Qt_6_7_3_MSVC2022_64bit-Release/SearchEngineLib.lib)
+set(__QT_DEPLOY_TARGET_SearchEngineLib_TYPE STATIC_LIBRARY)

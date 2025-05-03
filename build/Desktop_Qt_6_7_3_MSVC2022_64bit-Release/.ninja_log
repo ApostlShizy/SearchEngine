@@ -1,0 +1,23 @@
+# ninja log v6
+37	178	7671997512807616	FixEngineLib_autogen/timestamp	7ce1818fc05fd66
+37	178	7671997512807616	FixEngineLib_autogen/mocs_compilation.cpp	7ce1818fc05fd66
+37	178	7671997512807616	C:/develop/QT_Works/fixEngine/build/Desktop_Qt_6_7_3_MSVC2022_64bit-Release/FixEngineLib_autogen/timestamp	7ce1818fc05fd66
+37	178	7671997512807616	C:/develop/QT_Works/fixEngine/build/Desktop_Qt_6_7_3_MSVC2022_64bit-Release/FixEngineLib_autogen/mocs_compilation.cpp	7ce1818fc05fd66
+45	824	7672008010197709	build.ninja	d5c399525d1f724
+182	232	7671997513436922	CMakeFiles/FixEngineLib.dir/FixEngineLib_autogen/mocs_compilation.cpp.obj	19d1d14e7b654998
+221	6012	7672003769151354	Executable/CMakeFiles/Executable.dir/main.cpp.obj	8dcbead70eb46729
+79	219	7672003767737790	Executable/Executable_autogen/timestamp	9bcb1b256a15cfe5
+79	219	7672003767737790	Executable/Executable_autogen/mocs_compilation.cpp	9bcb1b256a15cfe5
+775	828	7671999810037662	Test/CMakeFiles/TestFixEngine.dir/TestFixEngine_autogen/mocs_compilation.cpp.obj	ae818917e1373513
+233	287	7671997513943481	FixEngineLib.lib	355892917f59eac3
+79	219	7672003767737790	C:/develop/QT_Works/fixEngine/build/Desktop_Qt_6_7_3_MSVC2022_64bit-Release/Executable/Executable_autogen/timestamp	9bcb1b256a15cfe5
+79	219	7672003767737790	C:/develop/QT_Works/fixEngine/build/Desktop_Qt_6_7_3_MSVC2022_64bit-Release/Executable/Executable_autogen/mocs_compilation.cpp	9bcb1b256a15cfe5
+418	469	7671997515794159	Executable/CMakeFiles/Executable.dir/Executable_autogen/mocs_compilation.cpp.obj	596df8364700960f
+6109	6281	7671997572708188	Executable.exe	a08e7f67531f6b37
+6013	6178	7672003827068238	C:/develop/QT_Works/fixEngine/Executable/ReleaseBuild/Executable.exe	5961b88cead849b1
+43	769	7671999809123496	Test/TestFixEngine_autogen/timestamp	ef438a706ca8d677
+43	769	7671999809123496	Test/TestFixEngine_autogen/mocs_compilation.cpp	ef438a706ca8d677
+43	769	7671999809123496	C:/develop/QT_Works/fixEngine/build/Desktop_Qt_6_7_3_MSVC2022_64bit-Release/Test/TestFixEngine_autogen/timestamp	ef438a706ca8d677
+43	769	7671999809123496	C:/develop/QT_Works/fixEngine/build/Desktop_Qt_6_7_3_MSVC2022_64bit-Release/Test/TestFixEngine_autogen/mocs_compilation.cpp	ef438a706ca8d677
+780	5733	7671999810097584	Test/CMakeFiles/TestFixEngine.dir/tst_testfixengine.cpp.obj	d0a72f906a11e6b
+5738	5881	7671999859674522	C:/develop/QT_Works/fixEngine/Test/TestBuild/TestFixEngine.exe	e9307a3e838c6e3a
