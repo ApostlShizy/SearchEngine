@@ -21,17 +21,18 @@ public:
     ConverterJSON() = default;
 
     /* получить максимальное колиество ответов на запрос из файла config.json */
-    size_t getMaxRespose() {
+    size_t getMaxResponse() {
         return maxResponse;
     }
 
     /* Метод принимает вектор строк в который вписывает пути к документам 
     * вписывает в поле maxRespone максимальное количество ответов на один запрос
     * Возврщает int с кодом выполнения
+    * configPath путь к файлу конфигурации
     */
-    int getConfig(std::vector<std::string>& filePath) {
+    int getConfig(std::vector<std::string>& filePath,std::string configPath = "config.json") {
 
-        std::ifstream configFile("config.json");
+        std::ifstream configFile(configPath);
         nlohmann::json config_dir;
 
         /* Исключения */
@@ -83,10 +84,12 @@ public:
         return 0;
     }
 
-    /* Чтение и составление списков запросов */
-    std::map<size_t, std::vector<std::string>> getRequests() {
+    /* Чтение и составление списков запросов
+     * requestsPath путь по которому лежит файл с запросами
+    */
+    std::map<size_t, std::vector<std::string>> getRequests(std::string requestsPath = "requests.json") {
 
-        std::ifstream requestsFile("requests.json");
+        std::ifstream requestsFile(requestsPath);
         std::map<size_t, std::vector<std::string>> listOfRequests;
 
         if (!requestsFile.is_open()) {
@@ -151,8 +154,10 @@ public:
         return listOfRequests;
     }
 
-    /* Положить в файл answers.json результаты поисковых запросов */
-    void putAnswers(std::vector<std::vector<RelativeIndex>>& answerValue) {
+    /* Положить в файл answers.json результаты поисковых запросов
+     * answerPath - путь по которому сформируется ответ
+     */
+    void putAnswers(std::vector<std::vector<RelativeIndex>>& answerValue,std::string answerPath = "answers.json") {
 
         int i = 0;
         nlohmann::ordered_json validityJson;
@@ -179,7 +184,7 @@ public:
             ++i;
         }
 
-        std::ofstream outFileAnswers("answers.json");
+        std::ofstream outFileAnswers(answerPath);
 
         outFileAnswers << validityJson.dump(4);
 

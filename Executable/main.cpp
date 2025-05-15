@@ -110,7 +110,7 @@ int main() {
     SearchServer searchObj(indexObj);
 
     std::vector<std::vector<RelativeIndex>> answerValue;
-    answerValue = searchObj.search(listOfRequests,converterJsonObj.getMaxRespose());
+    answerValue = searchObj.search(listOfRequests,converterJsonObj.getMaxResponse());
 
     /*-------------------------------------------------------------------------------------------*/
 
