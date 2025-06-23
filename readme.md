@@ -285,7 +285,7 @@ std::map<std::string, std::vector<Entry>> freqDictionary; /* частотный 
 ```C++
 void setfreqDictionary(const std::string & word, std::vector<Entry> & wordCount)
 ```
-Данный метод принимает слово (word) и его вектор стурктур (wordCount) для обновления частотного словаря.
+Данный метод принимает слово (word) и его вектор структур (wordCount) для обновления частотного словаря.
 
 ### 2. updateDocumentBase
 ```C++
