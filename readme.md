@@ -140,10 +140,10 @@
  ``` json
  {
     "requests": [
-        "some words..", // для данной строки id запроса будет равен “request001”
-        "some words..", // для данной строки id запроса будет равен “request002”
-        "some words..", // для данной строки id запроса будет равен “request003”
-        "some words..", // для данной строки id запроса будет равен “request004”
+        "some words..", /* для данной строки id запроса будет равен “request001” */
+        "some words..", /* для данной строки id запроса будет равен “request002” */
+        "some words..", /* для данной строки id запроса будет равен “request003” */
+        "some words..", /* для данной строки id запроса будет равен “request004” */
         …
     ]
  }
@@ -163,10 +163,10 @@
  ``` json
  {
     "files": [
-        "../resources/file001.txt", // для данного файла docid будет равен 0
-        "../resources/file002.txt", // для данного файла docid будет равен 1
-        "../resources/file003.txt", // для данного файла docid будет равен 2
-        "../resources/file004.txt", // для данного файла docid будет равен 3
+        "../resources/file001.txt", /* для данного файла docid будет равен 0 */
+        "../resources/file002.txt", /* для данного файла docid будет равен 1 */
+        "../resources/file003.txt", /* для данного файла docid будет равен 2 */
+        "../resources/file004.txt", /* для данного файла docid будет равен 3 */
         …
     ]
  }
