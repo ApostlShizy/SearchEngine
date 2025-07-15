@@ -14,12 +14,9 @@ int main() {
     /* Чтение conig файла */
     ConverterJSON converterJsonObj;
     std::vector<std::string> filesPath;
-    {
-        int runCode = converterJsonObj.getConfig(filesPath);
 
-        if (runCode != 0) {
-            return runCode;
-        }
+    if (int runCode = converterJsonObj.getConfig(filesPath); runCode != 0) {
+        return runCode;
     }
 
     /*-------------------------------------------------------------------------------------------*/
